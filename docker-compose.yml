@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: qit
+      POSTGRES_PASSWORD: qit_secret
+      POSTGRES_DB: qit
+    ports:
+      - "5433:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U qit -d qit"]
+      interval: 3s
+      timeout: 3s
+      retries: 15
+
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://qit:qit_secret@db:5432/qit
+      JWT_SECRET: dev-only-jwt-secret-change-in-prod
+      SAP_WEBHOOK_SECRET: sap-demo-secret
+      PORT: "3000"
+      NODE_ENV: production
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  db_data:
