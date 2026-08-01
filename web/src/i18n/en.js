@@ -33,7 +33,7 @@ export default {
     password: 'Password',
     signIn: 'Sign in',
     signingIn: 'Signing in…',
-    demoHint: 'Demo: supervisor1 / arvind123',
+    demoHint: '',
     errorOffline: 'No connection - logging in needs to reach the server once.',
     errorInvalid: 'Invalid username or password.',
   },

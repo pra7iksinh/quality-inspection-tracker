@@ -8,8 +8,8 @@ import { t } from '../i18n/index.js'
 const auth = useAuthStore()
 const router = useRouter()
 
-const username = ref('')
-const password = ref('')
+const username = ref('supervisor')
+const password = ref('Test105*')
 const error = ref('')
 const busy = ref(false)
 
@@ -49,7 +49,7 @@ async function submit() {
         {{ busy ? t('login.signingIn') : t('login.signIn') }}
       </button>
 
-      <p class="login-hint">{{ t('login.demoHint') }}</p>
+
     </form>
   </div>
 </template>
