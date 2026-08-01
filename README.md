@@ -2,6 +2,8 @@
 
 A mobile-first web app for shop-floor supervisors to log, track, and resolve fabric quality defects
 
+**Live Application:** [https://qi-tracker.duckdns.org](https://qi-tracker.duckdns.org)  
+
 **Stack:** Vue 3 (Vite, Pinia) · Node.js/Express · PostgreSQL · Docker Compose
 
 
